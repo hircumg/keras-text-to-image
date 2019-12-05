@@ -9,8 +9,8 @@ def load_normalized_img_and_its_text(img_dir_path, txt_dir_path, img_width, img_
     texts = dict()
     for f in os.listdir(img_dir_path):
         filepath = os.path.join(img_dir_path, f)
-        if os.path.isfile(filepath) and f.endswith('.png'):
-            name = f.replace('.png', '')
+        if os.path.isfile(filepath) and f.endswith('.jpg'):
+            name = f.replace('.jpg', '')
             images[name] = filepath
     for f in os.listdir(txt_dir_path):
         filepath = os.path.join(txt_dir_path, f)
