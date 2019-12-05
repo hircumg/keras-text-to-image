@@ -13,8 +13,8 @@ def main():
     sys.path.append(os.path.join(current_dir, '..'))
     current_dir = current_dir if current_dir is not '' else '.'
 
-    img_dir_path = current_dir + '/data/pokemon/img'
-    txt_dir_path = current_dir + '/data/pokemon/txt'
+    img_dir_path = current_dir + '/data/paintings/img'
+    txt_dir_path = current_dir + '/data/paintings/txt'
     model_dir_path = current_dir + '/models'
 
     img_width = 32
