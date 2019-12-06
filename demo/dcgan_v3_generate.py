@@ -12,8 +12,8 @@ def main():
     sys.path.append(os.path.join(current_dir, '..'))
     current_dir = current_dir if current_dir is not '' else '.'
 
-    img_dir_path = current_dir + '/data/pokemon/img'
-    txt_dir_path = current_dir + '/data/pokemon/txt'
+    img_dir_path = current_dir + '/data/paintings/img'
+    txt_dir_path = current_dir + '/data/paintings/txt'
     model_dir_path = current_dir + '/models'
 
     img_width = 32
@@ -30,16 +30,14 @@ def main():
     gan = DCGanV3()
     gan.load_model(model_dir_path)
 
-    for i in range(10):
-        image_label_pair = image_label_pairs[i]
-        normalized_image = image_label_pair[0]
-        text = image_label_pair[1]
+    text = ["Impressionism, French",
+            "Baroque,Spanish",
+            "Symbolism,French"]
 
-        image = img_from_normalized_img(normalized_image)
-        image.save(current_dir + '/data/outputs/' + DCGanV3.model_name + '-generated-' + str(i) + '-0.png')
-        for j in range(3):
-            generated_image = gan.generate_image_from_text(text)
-            generated_image.save(current_dir + '/data/outputs/' + DCGanV3.model_name + '-generated-' + str(i) + '-' + str(j) + '.png')
+    print("=======LOADED=================")
+    for i in range(len(text)):
+        generated_image = gan.generate_image_from_text(text[i])
+        generated_image.save(current_dir + '/data/outputs/' + DCGanV3.model_name + '-generated-' + str(i) + '.png')
 
 
 if __name__ == '__main__':

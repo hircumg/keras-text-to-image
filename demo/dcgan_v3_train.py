@@ -35,8 +35,8 @@ def main():
     gan.random_input_dim = 100
     gan.glove_source_dir_path = './very_large_data'
 
-    batch_size = 16
-    epochs = 100
+    batch_size = 128
+    epochs = 10
     gan.fit(model_dir_path=model_dir_path, image_label_pairs=image_label_pairs,
             snapshot_dir_path=current_dir + '/data/snapshots',
             snapshot_interval=100,
